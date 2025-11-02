@@ -102,15 +102,16 @@ complete -o default -F __start_kubectl k
 alias cat="sudo batcat --paging=never"
 alias ls="colorls"
 
-# Option + Arrow keys for word navigation
-bindkey "^[b" backward-word   # Option + Left
-bindkey "^[f" forward-word    # Option + Right
-
-# Option + Backspace to delete previous word
-bindkey "^[^?" backward-kill-word   # Option + Backspace
-
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 alias vi="nvim"
 
 alias clearram="free -h && sudo sysctl -w vm.drop_caches=3 && sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches && free -h"
+
+# Word-wise navigation
+bindkey "^[b" backward-word   # Option + Left
+bindkey "^[f" forward-word    # Option + Right
+
+# Word delete
+bindkey "^[^?" backward-kill-word  # Option + Backspace
+
